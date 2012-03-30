@@ -9,5 +9,5 @@ else
   unless File.exists?(groutes_store) && File.mtime(groutes_store) > File.mtime(routes_file)
     `rake routes > #{groutes_store}`
   end
-  puts `cat #{groutes_store} | grep #{search_term}`
+  puts `cat #{groutes_store} | grep --color -i #{search_term}`
 end

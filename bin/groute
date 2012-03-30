@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 if ARGV.nil? || ARGV.size == 0
-  puts "Usage: groute.rb PATTERN"
+  puts "Usage: groute PATTERN"
+  puts "Description: Equivalent to 'rake routes | grep <PATTERN>' but caches output.  Relies on config/routes.rb modification time to refresh cache."
 else
   search_term = ARGV.first
   groutes_store = File.expand_path(File.dirname('./'), 'tmp/.groutes')

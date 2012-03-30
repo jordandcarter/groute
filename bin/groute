@@ -4,10 +4,8 @@ if ARGV.nil? || ARGV.size == 0
   puts "Description: Equivalent to 'rake routes | grep <PATTERN>' but caches output.  Relies on config/routes.rb modification time to refresh cache."
 else
   search_term = ARGV.first
-  groutes_store = File.expand_path(File.dirname('./'), 'tmp/.groutes')
-  routes_file = File.expand_path(File.dirname('./'), 'config/routes.rb')
-  Dir.chdir File.expand_path(File.dirname('./'))
-  puts Dir.pwd
+  groutes_store = File.expand_path(File.dirname('tmp'), '.groutes')
+  routes_file = File.expand_path(File.dirname('config'), 'routes.rb')
   unless File.exists?(groutes_store) && File.mtime(groutes_store) > File.mtime(routes_file)
     `rake routes > #{groutes_store}`
   end

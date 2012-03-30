@@ -12,5 +12,5 @@ type
 
 `groute <PATTERN>`
 
-The full output from `rake routes` will be saved and reused until the modification time on *config/routes.r*' is
+The full output from `rake routes` will be saved and reused until the modification time on *config/routes.r* is
 updated

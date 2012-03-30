@@ -14,3 +14,11 @@ type
 
 The full output from `rake routes` will be saved and reused until the modification time on *config/routes.rb* is
 updated
+
+### Install
+
+Best place to install is your global gemset.
+
+`rvm use 1.9.3@global
+gem install groute
+. .rvmrc # if inside a project folder`

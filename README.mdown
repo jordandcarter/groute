@@ -19,6 +19,6 @@ updated
 
 Best place to install is your global gemset.
 
-`rvm use 1.9.3@global`
-`gem install groute`
-`. .rvmrc # if inside a project folder`
+    rvm use 1.9.3@global
+    gem install groute
+    . .rvmrc # if inside a project folder

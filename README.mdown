@@ -2,9 +2,15 @@
 
 Adds a simple utility to quickly search over your routes.
 
-How to use:
+### How to use
 
-From your rails directory instead of `rake routes | grep <PATTERN>` type `groute <PATTERN>`
+From your rails directory instead of
 
-The full output from 'rake routes' will be saved and reused until the modification time on 'config/routes.rb' is
+`rake routes | grep <PATTERN>`
+
+type
+
+`groute <PATTERN>`
+
+The full output from `rake routes` will be saved and reused until the modification time on *config/routes.r*' is
 updated

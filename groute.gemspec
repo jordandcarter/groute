@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Groute::VERSION
   s.authors     = ["Jordan Carter"]
   s.email       = ["jordan.d.carter@gmail.com"]
-  s.homepage    = "http://github.com/jordandcarter/groute"
+  s.homepage    = "http://jordandcarter.github.com/groute"
   s.summary     = %q{Caches your rake routes output and greps it, cache updates when routes.rb timestamp updated}
   s.description = %q{Grep over your routes often?  This will speed it up a bit}
 

@@ -1,13 +1,17 @@
 #!/usr/bin/env ruby
-if ARGV.nil? || ARGV.size == 0
-  puts "Usage: groute PATTERN"
+if ARGV.first == '-h' || ARGV.first == '--help'
+  puts 'Usage: groute <PATTERN>'
   puts "Description: Equivalent to 'rake routes | grep <PATTERN>' but caches output.  Relies on config/routes.rb modification time to refresh cache."
 else
-  search_term = ARGV.first
   groutes_store = File.expand_path('tmp/.groutes')
   routes_file = File.expand_path('config/routes.rb')
-  unless File.exists?(groutes_store) && File.mtime(groutes_store) > File.mtime(routes_file)
-    `rake routes > #{groutes_store}`
+  if ARGV.nil? || ARGV.size == 0
+    puts `cat #{groutes_store}`
+  else
+    search_term = ARGV.first
+    unless File.exists?(groutes_store) && File.mtime(groutes_store) > File.mtime(routes_file)
+      `rake routes > #{groutes_store}`
+    end
+    puts `cat #{groutes_store} | grep --color=always -i #{search_term}`
   end
-  puts `cat #{groutes_store} | grep --color=always -i #{search_term}`
 end

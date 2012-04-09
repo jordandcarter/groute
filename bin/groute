@@ -5,7 +5,7 @@ if ARGV.first == '-h' || ARGV.first == '--help'
 else
   groutes_store = File.expand_path('tmp/.groutes')
   routes_file = File.expand_path('config/routes.rb')
-  if !File.exists?(groutes_store) || (File.mtime(groutes_store) > File.mtime(routes_file)) || File.foreach(groutes_store).inject(0){|c, line| c+1} < 3 && File.foreach(groutes_store).collect{|l| l}.join('').strip.size < 8 # Assuming a valid route is longer than 6 chars. 'PUT / a#b'
+  if !File.exists?(groutes_store) || (File.mtime(groutes_store) < File.mtime(routes_file)) || File.foreach(groutes_store).inject(0){|c, line| c+1} < 10 && File.foreach(groutes_store).collect{|l| l}.join('').strip.size < 9 # Assuming a valid route is longer than 8 chars. 'PUT / a#b'
     `rake routes > #{groutes_store}`
   end
 
